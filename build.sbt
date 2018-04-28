@@ -2,17 +2,15 @@ lazy val root = (project in file("."))
   .settings(
     inThisBuild(
       List(
-        scalaVersion := "2.12.2"
+        scalaVersion := "2.12.6"
       )
     ),
-    name := """pwnedpasswords-scala""",
+    name := """pwnedpasswords-scala-example""",
     version := "0.1.0",
     libraryDependencies ++= List(
       Dependencies.monix,
-      Dependencies.betterFiles,
-      Dependencies.scalaTest,
-      Dependencies.scalaCheck
-    ) ++ Dependencies.circe.json
+      Dependencies.scalajHttp
+    )
   )
   .enablePlugins(JavaAppPackaging)
 
@@ -26,5 +24,6 @@ scalacOptions ++= List( // useful compiler flags for scala
   "-Xlint",
   "-Yno-adapted-args",
   "-Ywarn-numeric-widen",
-  "-Xfuture"
+  "-Xfuture",
+  "-Ypartial-unification"
 )
